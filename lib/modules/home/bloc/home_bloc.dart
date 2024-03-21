@@ -1,4 +1,3 @@
-import 'dart:convert';
 
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
@@ -33,16 +32,12 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
          DoubleResponse response = await dataRepo.getDataFromLocal();
 
       if (response.data1) {
-        print('this');
-        print(json.encode(response.data2));
         emit(UserLoadSuccessState(userList: response.data2));
       } else {
-        print('else');
         emit(UserLoadFailState());
       }
         
       } catch (e) {
-       print('here${e.toString()}');
         
         emit(UserLoadFailState());
       }
@@ -58,7 +53,6 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       if (response.data1) {
         emit(UserDeleteSuccessState());
       } else {
-        print('else');
         emit(UserDeleteFailState());
       }
 

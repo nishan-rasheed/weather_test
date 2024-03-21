@@ -2,11 +2,12 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:weather_app/common_widgets/app_spaces.dart';
 import 'package:weather_app/common_widgets/app_variables.dart';
-import 'package:weather_app/utils/app_assets.dart';
+import 'package:weather_app/common_widgets/common_button.dart';
+import 'package:weather_app/modules/auth/view/login_screen.dart';
 
-import '../../../utils/app_color.dart';
-import '../model/on_boarding_model.dart';
 import 'widgets/on_boarding_widget.dart';
 
 
@@ -74,9 +75,9 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                 ),
               ),
             ),
-            // Indicator area
+            
             Padding(
-              padding: const EdgeInsets.only(bottom: 16.0),
+              padding:  EdgeInsets.symmetric(vertical: 20.h),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -92,37 +93,19 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                 ],
               ),
             ),
-            // Privacy policy area
-            const Text("By proceeding you agree to our Privacy Policy"),
-            // White space
-            const SizedBox(
-              height: 16,
+            cmHeight20,
+
+            Padding(
+              padding:  EdgeInsets.symmetric(horizontal: 30.w),
+              child: CommonButton(
+                borderRadius: 15.r,
+                height: 60.h,
+                onPressed: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context) =>  const LoginScreen(),));
+                }, 
+                label: 'Get Started'),
             ),
-            // Button area
-            InkWell(
-              onTap: () {
-                print("Button clicked!");
-              },
-              child: Container(
-                margin: const EdgeInsets.only(bottom: 48),
-                height: 100,
-                width:300,
-                decoration: BoxDecoration(
-                  color: Colors.purple,
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: const Center(
-                  child: Text(
-                    "Login / Registration",
-                    style: TextStyle(
-                      fontFamily: "HappyMonkey",
-                      color: Colors.white,
-                      fontSize: 18,
-                    ),
-                  ),
-                ),
-              ),
-            ),
+            cmHeight10,
           ],
         ),
       ),

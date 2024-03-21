@@ -1,5 +1,3 @@
-import 'dart:convert';
-import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
@@ -22,12 +20,10 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
       var response = await weatherRepo.getWeather();
 
       if (response.data1) {
-        log(json.encode(response.data2));
        
         emit(WeatherLoadedState(weatherData: response.data2));
       }
       else{
-        print('here');
         emit(WeatherFailState());
       }
 

@@ -8,8 +8,13 @@ final class AuthInitial extends AuthState {}
 
 final class LoginLoadingState extends AuthState {}
 final class LoginSucessState extends AuthState {}
-final class LoginFailState extends AuthState {}
+final class LoginFailState extends AuthState {
+  final String error;
 
+  LoginFailState({required this.error});
+}
+
+final class UserLoggedLoadingState extends AuthState {}
 final class UserLoggedState extends AuthState {}
 
 final class UserNotLoggedState extends AuthState {}

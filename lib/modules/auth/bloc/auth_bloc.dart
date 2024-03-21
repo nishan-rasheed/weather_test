@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:flutter/foundation.dart';
 import 'package:meta/meta.dart';
 import 'package:weather_app/modules/auth/data/auth_repo.dart';
 import 'package:weather_app/utils/data_response_model.dart';
@@ -14,14 +15,12 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     on<LoginEvent>((event, emit) async{
       emit(LoginLoadingState());
 
-       DoubleResponse dd = await dataRepo.login(event.userName, event.password);
+       DoubleResponse response = await dataRepo.login(event.userName, event.password);
 
-       if (dd.data1) {
-         print(dd.data2.toString());
+       if (response.data1) {
          emit(LoginSucessState());
        } else {
-         print(dd.data2.toString());
-         emit(LoginFailState());
+         emit(LoginFailState(error:response.data2 ));
        } 
       
     });
@@ -29,14 +28,17 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
     on<CheclLoggedEvent>((event, emit) async{
 
+      emit(UserLoggedLoadingState());
+
       DoubleResponse dd = await dataRepo.checkLogged();
 
        if (dd.data1) {
          emit(UserLoggedState());
-         print('is logged');
+         if (kDebugMode) {
+           print('is logged');
+         }
        } else {
          emit(UserNotLoggedState());
-         print('is not loggedin');
        } 
       
     });

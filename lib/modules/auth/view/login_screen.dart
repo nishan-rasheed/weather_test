@@ -3,19 +3,19 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:weather_app/common_widgets/app_spaces.dart';
 import 'package:weather_app/common_widgets/common_button.dart';
+import 'package:weather_app/common_widgets/common_snackbar.dart';
 import 'package:weather_app/modules/auth/bloc/auth_bloc.dart';
 import 'package:weather_app/modules/home/view/home_screen.dart';
 import 'package:weather_app/utils/app_assets.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import '../../../common_widgets/common_textfield.dart';
 
 class LoginScreen extends StatelessWidget {
-   LoginScreen({Key? key}) : super(key: key);
+   const LoginScreen({Key? key}) : super(key: key);
 
   static TextEditingController userNameCtr = TextEditingController();
   static TextEditingController passWordCtr = TextEditingController();
 
-  final _loginForkKey = GlobalKey<FormState>();
+  static  final GlobalKey<FormState> _loginForkKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -59,7 +59,10 @@ class LoginScreen extends StatelessWidget {
                   BlocListener<AuthBloc, AuthState>(
                     listener: (context, state) {
                       if (state is LoginSucessState) {
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => const HomeScreen(),));
+                        Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => const HomeScreen(),),(route) => false,);
+                      }
+                      if (state is LoginFailState) {
+                       CommonAlert.showSnackBar(context, text: state.error);
                       }
                     },
                     child: CommonButton(

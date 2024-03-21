@@ -19,7 +19,7 @@ class CommonTextField extends StatelessWidget {
       decoration: InputDecoration(
         isDense: true,
         hintText: hint,
-        border: OutlineInputBorder(
+        border: const OutlineInputBorder(
           borderSide: BorderSide(
             color: AppColor.borderColor
           )

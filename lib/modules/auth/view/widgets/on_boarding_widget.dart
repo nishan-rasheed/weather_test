@@ -20,24 +20,30 @@ class OnBoardContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: EdgeInsets.symmetric(horizontal: 20.w,vertical: 50.h),
       decoration: BoxDecoration(
         color: AppColor.primaryColor,
         borderRadius: BorderRadius.vertical(bottom: Radius.circular(100.r))
       ),
       child: Column(mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Image.asset(image,
-          width: 1.sw,height: 200.h,
-          ),
-          CommonText(text: title,textStyle: AppTextStyles.labelMedium.copyWith(
+          CommonText(text: title,
+          textAlign: TextAlign.center,
+          textStyle: AppTextStyles.labelMedium.copyWith(
             fontSize: 30.sp,
             color: AppColor.cWhite
           ),),
+          Expanded(
+            child: Image.asset(image,
+            width: 1.sw,height: 200.h,
+            ),
+          ),
+          
           cmHeight10,
           CommonText(
             textAlign: TextAlign.center,
             text: description,textStyle: AppTextStyles.labelMedium.copyWith(
-            fontSize: 15.sp,
+            fontSize: 18.sp,
             fontWeight: FontWeight.w400,
             color: AppColor.borderColor
           ),),

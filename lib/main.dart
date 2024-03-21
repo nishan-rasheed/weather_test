@@ -1,6 +1,6 @@
-import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -12,7 +12,6 @@ import 'package:weather_app/modules/weather/bloc/weather_bloc.dart';
 import 'package:weather_app/utils/app_color.dart';
 import 'package:weather_app/wrapper_screen.dart';
 
-import 'modules/auth/view/on_boarding_screen.dart';
 import 'utils/bloc_observer.dart';
 
 void main() async{
@@ -20,9 +19,13 @@ void main() async{
  await Hive.initFlutter();
 
   await Hive.openBox("userData");
-  await Hive.openBox("testData");
+  await Hive.openBox('weatherData');
 
   Bloc.observer = MyBlocObserver();
+
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+  ]);
   
   runApp(MultiBlocProvider(
     providers: [
@@ -57,7 +60,7 @@ class MyApp extends StatelessWidget {
               colorScheme: ColorScheme.fromSeed(seedColor: AppColor.primaryColor),
               useMaterial3: false,
             ),
-            home: OnBoardingScreen()
+            home: const WrapperScreen()
             //const WrapperScreen()
           ),
         );

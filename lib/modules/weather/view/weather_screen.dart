@@ -156,7 +156,16 @@ class _WeatherScreenState extends State<WeatherScreen> {
                 ],
               ),
             );
-            } else {
+            } 
+            
+            else if(state is WeatherFailState){
+               return Center(child: CommonText(text: 'Some thing went wrong',
+               textStyle: AppTextStyles.labelMedium.copyWith(
+                color: AppColor.cWhite
+               ),
+               ),);
+            }
+            else {
               
               return const Center(child: CupertinoActivityIndicator(color: AppColor.cWhite,));
             }

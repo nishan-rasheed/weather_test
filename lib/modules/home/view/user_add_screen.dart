@@ -45,63 +45,65 @@ class _UserAddScreenState extends State<UserAddScreen> {
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(vertical: 50.h, horizontal: 25.w),
-        child: Form(
-          key: _forkKey,
-          child: Column(
-            // mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              CommonTextField(
-                validator: (v) {
-                  if (v?.isEmpty??false) {
-                    return '*Required';
-                  }
-                  return null;
-                },
-                hint: 'First Name',
-                controller: firstNameCtr,
-              ),
-              cmHeight10,
-              CommonTextField(
-                validator: (v) {
-                  if (v?.isEmpty??false) {
-                    return '*Required';
-                  }
-                  return null;
-                },
-                hint: 'Last Name',
-                controller: lastNameCtr,
-              ),
-              cmHeight10,
-              CommonTextField(
-                validator: (v) {
-                  if (v?.isEmpty??false) {
-                    return '*Required';
-                  }
-                  return null;
-                },
-                hint: 'Email',
-                controller: emailCtr,
-              ),
-              cmHeight50,
-              BlocListener<HomeBloc, HomeState>(
-                listener: (context, state) {
-                  if (state is UserAddedSuccessState) {
-                    Navigator.pop(context);
-                  }
-                },
-                child: CommonButton(
-                    onPressed: () {
-                      if (_forkKey.currentState?.validate()??false) {
-                         context.read<HomeBloc>().add(UserAddEvent(
-                          firstName: firstNameCtr.text,
-                          lastName: lastNameCtr.text,
-                          email: emailCtr.text));
-                          context.read<HomeBloc>().add(UserLoadEvent());
-                      }
-                    },
-                    label: 'Save'),
-              ),
-            ],
+        child: SingleChildScrollView(
+          child: Form(
+            key: _forkKey,
+            child: Column(
+              // mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                CommonTextField(
+                  validator: (v) {
+                    if (v?.isEmpty??false) {
+                      return '*Required';
+                    }
+                    return null;
+                  },
+                  hint: 'First Name',
+                  controller: firstNameCtr,
+                ),
+                cmHeight10,
+                CommonTextField(
+                  validator: (v) {
+                    if (v?.isEmpty??false) {
+                      return '*Required';
+                    }
+                    return null;
+                  },
+                  hint: 'Last Name',
+                  controller: lastNameCtr,
+                ),
+                cmHeight10,
+                CommonTextField(
+                  validator: (v) {
+                    if (v?.isEmpty??false) {
+                      return '*Required';
+                    }
+                    return null;
+                  },
+                  hint: 'Email',
+                  controller: emailCtr,
+                ),
+                cmHeight50,
+                BlocListener<HomeBloc, HomeState>(
+                  listener: (context, state) {
+                    if (state is UserAddedSuccessState) {
+                      Navigator.pop(context);
+                    }
+                  },
+                  child: CommonButton(
+                      onPressed: () {
+                        if (_forkKey.currentState?.validate()??false) {
+                           context.read<HomeBloc>().add(UserAddEvent(
+                            firstName: firstNameCtr.text,
+                            lastName: lastNameCtr.text,
+                            email: emailCtr.text));
+                            context.read<HomeBloc>().add(UserLoadEvent());
+                        }
+                      },
+                      label: 'Save'),
+                ),
+              ],
+            ),
           ),
         ),
       ),

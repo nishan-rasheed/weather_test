@@ -1,4 +1,3 @@
-import 'dart:convert';
 
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:weather_app/utils/data_response_model.dart';
@@ -9,7 +8,6 @@ class HomeRepo{
 
 
   var localUserDataBox = Hive.box('userData');
-  var testData = Hive.box('testData');
 
 
   
@@ -58,7 +56,6 @@ class HomeRepo{
    else{
     return DoubleResponse(true, userList);
    }
-  //  return DoubleResponse(true, []);
     
      
    } catch (e) {

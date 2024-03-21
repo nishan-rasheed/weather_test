@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -62,7 +61,7 @@ class HomeScreen extends StatelessWidget {
         builder: (context, state) {
           if (state is UserLoadSuccessState) {
             return ListView.separated(
-              padding: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+              padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
               itemCount: state.userList.length,
               separatorBuilder: (BuildContext context, int index) {
                 return cmHeight15;
