@@ -14,36 +14,33 @@ class WeatherRepo {
 
   var localWeatherBox = Hive.box('weatherData');
 
+  WeatherModel? locaWeatherData;
+
 
 
   Future<DoubleResponse> getWeather()async{
 
    try {
 
-    // if (localWeatherBox.get('weatherData')!=null) {
+    var localData = localWeatherBox.get('weatherData');
+
+    if (localData!=null) {
+
+      final weatherModel = weatherModelFromJson(localData);
+      locaWeatherData = weatherModel;
+
+      return DoubleResponse(true, locaWeatherData);
       
-    // } else {
+    } else {
 
-    //   String url = 'http://api.weatherapi.com/v1/current.json?key=${AppVariables.apiKey}&q=${AppVariables.location}&aqi=no';
-    //   final response = await client.get(url,);
-
-    //  final weatherModel = weatherModelFromJson(json.encode(response.data));
-
-    // return DoubleResponse(true, weatherModel);
-    // }
-
-
-    String url = 'http://api.weatherapi.com/v1/current.json?key=${AppVariables.apiKey}&q=${AppVariables.location}&aqi=no';
+      String url = 'http://api.weatherapi.com/v1/current.json?key=${AppVariables.apiKey}&q=${AppVariables.location}&aqi=no';
       final response = await client.get(url,);
-
      final weatherModel = weatherModelFromJson(json.encode(response.data));
+     localWeatherBox.put('weatherData', weatherModelToJson(weatherModel));
+     locaWeatherData = jsonDecode(localWeatherBox.get('weatherData'));
+    return DoubleResponse(true, locaWeatherData);
+    }
 
-    return DoubleResponse(true, weatherModel);
-
-
-
-    
-     
    } catch (e) {
       return DoubleResponse(false, 'Some thing went wrong');
    }

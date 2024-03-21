@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -30,9 +31,11 @@ class LoginScreen extends StatelessWidget {
                 children: [
 
                   cmHeight50,
-                  Image.asset(
-                    AppAssets.onB3Img,
-                    width: 200.w,
+                  FadeInDown(
+                    child: Image.asset(
+                      AppAssets.onB3Img,
+                      width: 200.w,
+                    ),
                   ),
                   CommonTextField(
                     validator: (v) {

@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:weather_app/common_widgets/app_spaces.dart';
@@ -27,26 +28,32 @@ class OnBoardContent extends StatelessWidget {
       ),
       child: Column(mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          CommonText(text: title,
-          textAlign: TextAlign.center,
-          textStyle: AppTextStyles.labelMedium.copyWith(
-            fontSize: 30.sp,
-            color: AppColor.cWhite
-          ),),
+          FadeInLeft(
+            child: CommonText(text: title,
+            textAlign: TextAlign.center,
+            textStyle: AppTextStyles.labelMedium.copyWith(
+              fontSize: 30.sp,
+              color: AppColor.cWhite
+            ),),
+          ),
           Expanded(
-            child: Image.asset(image,
-            width: 1.sw,height: 200.h,
+            child: ElasticInUp(
+              child: Image.asset(image,
+              width: 1.sw,height: 200.h,
+              ),
             ),
           ),
           
           cmHeight10,
-          CommonText(
-            textAlign: TextAlign.center,
-            text: description,textStyle: AppTextStyles.labelMedium.copyWith(
-            fontSize: 18.sp,
-            fontWeight: FontWeight.w400,
-            color: AppColor.borderColor
-          ),),
+          Bounce(
+            child: CommonText(
+              textAlign: TextAlign.center,
+              text: description,textStyle: AppTextStyles.labelMedium.copyWith(
+              fontSize: 18.sp,
+              fontWeight: FontWeight.w400,
+              color: AppColor.borderColor
+            ),),
+          ),
         ],
       ),
     );
@@ -66,13 +73,13 @@ class DotIndicator extends StatelessWidget {
   Widget build(BuildContext context) {
     return AnimatedContainer(
       duration: const Duration(milliseconds: 300),
-      height: 8,
-      width: isActive ? 24 : 8,
+      height: 8.h,
+      width: isActive ? 25.w : 8.w,
       decoration: BoxDecoration(
         color: isActive ? Colors.amber : Colors.white,
         border: isActive ? null : Border.all(color: Colors.amber),
-        borderRadius: const BorderRadius.all(
-          Radius.circular(12),
+        borderRadius:  BorderRadius.all(
+          Radius.circular(12.r),
         ),
       ),
     );

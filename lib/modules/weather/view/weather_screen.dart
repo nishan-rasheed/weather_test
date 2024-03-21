@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -59,10 +60,12 @@ class _WeatherScreenState extends State<WeatherScreen> {
               padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 15.h),
               child: Column(
                 children: [
-                  CommonText(
-                    text: 'Kochi - Kerala',
-                    textStyle: AppTextStyles.labelLarge
-                        .copyWith(color: AppColor.cWhite),
+                  FadeInLeft(
+                    child: CommonText(
+                      text: 'Kochi - Kerala',
+                      textStyle: AppTextStyles.labelLarge
+                          .copyWith(color: AppColor.cWhite),
+                    ),
                   ),
 
                   cmHeight05,
@@ -83,20 +86,24 @@ class _WeatherScreenState extends State<WeatherScreen> {
                     child: Row(
                       children: [
                         Expanded(
-                          child: Image.asset(
-                                            AppAssets.weathImg,
-                                          ),
+                          child: BounceInDown(
+                            child: Image.asset(
+                                              AppAssets.weathImg,
+                                            ),
+                          ),
                         ),
                         cmWidth10,
                     Expanded(
                       child: Consumer<CoreProvider>(
                         builder: (context, coreValue, child) => 
-                        CommonText(
-                          text: coreValue.isCelcius?
-                          '${state.weatherData.current?.temp_c}\u00B0 C':
-                          '${state.weatherData.current?.temp_f}\u00B0 F',
-                          textStyle: AppTextStyles.labelMedium
-                              .copyWith(fontSize: 40.sp, color: AppColor.cWhite),
+                        ElasticIn(
+                          child: CommonText(
+                            text: coreValue.isCelcius?
+                            '${state.weatherData.current?.temp_c}\u00B0 C':
+                            '${state.weatherData.current?.temp_f}\u00B0 F',
+                            textStyle: AppTextStyles.labelMedium
+                                .copyWith(fontSize: 40.sp, color: AppColor.cWhite),
+                          ),
                         ),
                       ),
                     ),
@@ -126,30 +133,32 @@ class _WeatherScreenState extends State<WeatherScreen> {
                                      ),
                    ),
                    cmHeight10,
-                  Container(
-                    alignment: Alignment.center,
-                    width: 1.sw,
-                    height: 200.h,
-                    padding:
-                        EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: const Color.fromARGB(255, 62, 64, 75)),
-                    child:  Row(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        WeatherTileWidget(
-                          icon: Icons.water_drop_outlined,
-                          text: 'Humidity',
-                          count: (state.weatherData.current?.humidity??0).toString(),
-                        ),
-                        WeatherTileWidget(
-                          icon: Icons.wind_power_outlined,
-                          text: 'Wind',
-                          count:'${state.weatherData.current?.wind_kph??0} Kmh' ,
-                        ),
-                      ],
+                  FlipInX(
+                    child: Container(
+                      alignment: Alignment.center,
+                      width: 1.sw,
+                      height: 200.h,
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: const Color.fromARGB(255, 62, 64, 75)),
+                      child:  Row(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          WeatherTileWidget(
+                            icon: Icons.water_drop_outlined,
+                            text: 'Humidity',
+                            count: (state.weatherData.current?.humidity??0).toString(),
+                          ),
+                          WeatherTileWidget(
+                            icon: Icons.wind_power_outlined,
+                            text: 'Wind',
+                            count:'${state.weatherData.current?.wind_kph??0} Kmh' ,
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                   cmHeight25,

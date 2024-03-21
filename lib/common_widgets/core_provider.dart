@@ -8,4 +8,11 @@ class CoreProvider extends ChangeNotifier{
   notifyListeners();
   }
 
+
+  int selectedIndex = 0;
+  changeOnboarding(int v){
+  selectedIndex =v;
+  notifyListeners();
+  }
+
 }

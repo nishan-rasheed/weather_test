@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -68,69 +69,71 @@ class HomeScreen extends StatelessWidget {
               },
               itemBuilder: (BuildContext context, int index) {
                 var item = state.userList[index];
-                return Slidable(
-                  endActionPane:
-                      ActionPane(motion: const ScrollMotion(), children: [
-                    SlidableAction(
-                      onPressed: (v) {
-                        context
-                            .read<HomeBloc>()
-                            .add(UserDeleteEvent(email: item.email ?? ''));
-                        context.read<HomeBloc>().add(UserLoadEvent());
+                return FadeInUp(
+                  child: Slidable(
+                    endActionPane:
+                        ActionPane(motion: const ScrollMotion(), children: [
+                      SlidableAction(
+                        onPressed: (v) {
+                          context
+                              .read<HomeBloc>()
+                              .add(UserDeleteEvent(email: item.email ?? ''));
+                          context.read<HomeBloc>().add(UserLoadEvent());
+                        },
+                        backgroundColor: const Color(0xFFFE4A49),
+                        foregroundColor: Colors.white,
+                        icon: Icons.delete,
+                        label: 'Delete',
+                      ),
+                    ]),
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const WeatherScreen(),
+                            ));
                       },
-                      backgroundColor: const Color(0xFFFE4A49),
-                      foregroundColor: Colors.white,
-                      icon: Icons.delete,
-                      label: 'Delete',
-                    ),
-                  ]),
-                  child: InkWell(
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const WeatherScreen(),
-                          ));
-                    },
-                    child: Container(
-                      padding: EdgeInsets.symmetric(
-                          horizontal: 10.w, vertical: 15.h),
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(15),
-                          color: AppColor.cWhite,
-                          boxShadow: const [
-                            BoxShadow(
-                                color: AppColor.borderColor,
-                                spreadRadius: 2,
-                                blurRadius: 5)
-                          ]),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          const CircleAvatar(
-                            backgroundColor: AppColor.primaryColor,
-                            child: Icon(Icons.person),
-                          ),
-                          cmWidth10,
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                CommonText(
-                                  text: 'First name: ${item.firstName}',
-                                  textStyle: AppTextStyles.labelMedium.copyWith(
-                                    fontSize: 15,
-                                  ),
-                                ),
-                                cmHeight02,
-                                CommonText(text: 'Last name: ${item.lastName}'),
-                                cmHeight05,
-                                CommonText(text: 'email : ${item.email}')
-                              ],
+                      child: Container(
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 10.w, vertical: 15.h),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(15),
+                            color: AppColor.cWhite,
+                            boxShadow: const [
+                              BoxShadow(
+                                  color: AppColor.borderColor,
+                                  spreadRadius: 2,
+                                  blurRadius: 5)
+                            ]),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            const CircleAvatar(
+                              backgroundColor: AppColor.primaryColor,
+                              child: Icon(Icons.person),
                             ),
-                          ),
-                          // CupertinoSwitch(value: true, onChanged: (v) {})
-                        ],
+                            cmWidth10,
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  CommonText(
+                                    text: 'First name: ${item.firstName}',
+                                    textStyle: AppTextStyles.labelMedium.copyWith(
+                                      fontSize: 15,
+                                    ),
+                                  ),
+                                  cmHeight02,
+                                  CommonText(text: 'Last name: ${item.lastName}'),
+                                  cmHeight05,
+                                  CommonText(text: 'email : ${item.email}')
+                                ],
+                              ),
+                            ),
+                            // CupertinoSwitch(value: true, onChanged: (v) {})
+                          ],
+                        ),
                       ),
                     ),
                   ),
