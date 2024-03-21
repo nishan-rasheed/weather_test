@@ -25,29 +25,20 @@ class WeatherModel with _$WeatherModel {
 @freezed
 class Current with _$Current {
     const factory Current({
-        num? lastUpdatedEpoch,
-        String? lastUpdated,
-        num? tempC,
-        num? tempF,
-        num? isDay,
+        num? last_updated_epoch,
+        String? last_updated,
+        num? temp_c,
+        num? temp_f,
+        num? is_day,
         Condition? condition,
-        num? windMph,
-        num? windKph,
-        num? windDegree,
-        String? windDir,
-        num? pressureMb,
-        num? pressureIn,
-        num? precipMm,
-        num? precipIn,
+        num? wind_mph,
+        num? wind_kph,
+        num? wind_degree,
+        String? wind_dir,
         num? humidity,
         num? cloud,
-        num? feelslikeC,
-        num? feelslikeF,
-        num? visKm,
-        num? visMiles,
-        num? uv,
-        num? gustMph,
-        num? gustKph,
+        num? feelslike_c,
+        num? feelslike_f,
     }) = _Current;
 
     factory Current.fromJson(Map<String, dynamic> json) => _$CurrentFromJson(json);
@@ -72,8 +63,8 @@ class Location with _$Location {
         String? country,
         num? lat,
         num? lon,
-        String? tzId,
-        num? localtimeEpoch,
+        String? tz_id,
+        num? localtime_epoch,
         String? localtime,
     }) = _Location;
 

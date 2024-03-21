@@ -40,5 +40,17 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
        } 
       
     });
+
+     on<LogoutEvent>((event, emit) async{
+
+      DoubleResponse dd = await dataRepo.logout();
+
+       if (dd.data1) {
+         emit(UserSignoutSuccessState());
+       } else {
+         emit(UserSignoutFailState());
+       } 
+      
+    });
   }
 }

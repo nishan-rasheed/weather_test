@@ -1,11 +1,11 @@
 import 'dart:convert';
 
 import 'package:bloc/bloc.dart';
-import 'package:meta/meta.dart';
+import 'package:flutter/material.dart';
 import 'package:weather_app/modules/home/data/home_repo.dart';
 import 'package:weather_app/utils/data_response_model.dart';
 
-import '../model/add_user/add_user_model.dart';
+import '../model/add_user_model.dart';
 
 part 'home_event.dart';
 part 'home_state.dart';
@@ -17,7 +17,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
 
   HomeBloc() : super(HomeInitial()) {
     on<UserAddEvent>((event, emit) async{
-      DoubleResponse dd = await dataRepo.addUser();
+      DoubleResponse dd = await dataRepo.addUser(email: event.email,firstName: event.firstName,lastName: event.lastName);
 
       if (dd.data1) {
         emit(UserAddedSuccessState());
@@ -34,7 +34,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
 
       if (response.data1) {
         print('this');
-        print(response.data2.runtimeType);
+        print(json.encode(response.data2));
         emit(UserLoadSuccessState(userList: response.data2));
       } else {
         print('else');
@@ -45,6 +45,21 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
        print('here${e.toString()}');
         
         emit(UserLoadFailState());
+      }
+
+      
+    });
+
+
+    on<UserDeleteEvent>((event, emit) async{
+
+      DoubleResponse response = await dataRepo.deleteUser(event.email);
+
+      if (response.data1) {
+        emit(UserDeleteSuccessState());
+      } else {
+        print('else');
+        emit(UserDeleteFailState());
       }
 
       

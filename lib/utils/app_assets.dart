@@ -4,4 +4,6 @@ class AppAssets{
   static const onB2Img = 'assets/images/onB2.png';
   static const onB3Img = 'assets/images/onB3.png';
   static const onB4Img = 'assets/images/onB4.png';
+
+  static const weathImg = 'assets/images/wether.png';
 }

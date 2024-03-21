@@ -10,10 +10,12 @@ import 'package:flutter_animate/flutter_animate.dart';
 import '../../../common_widgets/common_textfield.dart';
 
 class LoginScreen extends StatelessWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+   LoginScreen({Key? key}) : super(key: key);
 
   static TextEditingController userNameCtr = TextEditingController();
   static TextEditingController passWordCtr = TextEditingController();
+
+  final _loginForkKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -21,40 +23,60 @@ class LoginScreen extends StatelessWidget {
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 20.w),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Image.asset(
-                AppAssets.onB3Img,
-                width: 200.w,
-              ),
-              CommonTextField(
-                hint: 'Username',
-                controller: userNameCtr,
-              ),
-              cmHeight15,
-              CommonTextField(
-                hint: 'Password',
-                controller: passWordCtr,
-              ),
-              cmHeight50,
-              BlocListener<AuthBloc, AuthState>(
-                listener: (context, state) {
-                  if (state is LoginSucessState) {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => const HomeScreen(),));
-                  }
-                },
-                child: CommonButton(
-                    width: 100.w,
-                    onPressed: () {
-                      context.read<AuthBloc>().add(LoginEvent(
-                          userName: userNameCtr.text,
-                          password: passWordCtr.text));
-                      
+          child: Form(
+            key: _loginForkKey,
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+
+                  cmHeight50,
+                  Image.asset(
+                    AppAssets.onB3Img,
+                    width: 200.w,
+                  ),
+                  CommonTextField(
+                    validator: (v) {
+                      if (v?.isEmpty??false) {
+                        return '*Required';
+                      }
+                      return null;
                     },
-                    label: 'Login'),
-              )
-            ],
+                    hint: 'Username',
+                    controller: userNameCtr,
+                  ),
+                  cmHeight15,
+                  CommonTextField(
+                    validator: (v) {
+                      if (v?.isEmpty??false) {
+                        return '*Required';
+                      }
+                      return null;
+                    },
+                    hint: 'Password',
+                    controller: passWordCtr,
+                  ),
+                  cmHeight50,
+                  BlocListener<AuthBloc, AuthState>(
+                    listener: (context, state) {
+                      if (state is LoginSucessState) {
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => const HomeScreen(),));
+                      }
+                    },
+                    child: CommonButton(
+                        width: 100.w,
+                        onPressed: () {
+                          if (_loginForkKey.currentState?.validate()??false) {
+                            context.read<AuthBloc>().add(LoginEvent(
+                              userName: userNameCtr.text,
+                              password: passWordCtr.text));
+                            
+                          } 
+                        },
+                        label: 'Login'),
+                  )
+                ],
+              ),
+            ),
           ),
         ),
       ),

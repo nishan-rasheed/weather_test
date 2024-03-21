@@ -206,29 +206,20 @@ Current _$CurrentFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Current {
-  num? get lastUpdatedEpoch => throw _privateConstructorUsedError;
-  String? get lastUpdated => throw _privateConstructorUsedError;
-  num? get tempC => throw _privateConstructorUsedError;
-  num? get tempF => throw _privateConstructorUsedError;
-  num? get isDay => throw _privateConstructorUsedError;
+  num? get last_updated_epoch => throw _privateConstructorUsedError;
+  String? get last_updated => throw _privateConstructorUsedError;
+  num? get temp_c => throw _privateConstructorUsedError;
+  num? get temp_f => throw _privateConstructorUsedError;
+  num? get is_day => throw _privateConstructorUsedError;
   Condition? get condition => throw _privateConstructorUsedError;
-  num? get windMph => throw _privateConstructorUsedError;
-  num? get windKph => throw _privateConstructorUsedError;
-  num? get windDegree => throw _privateConstructorUsedError;
-  String? get windDir => throw _privateConstructorUsedError;
-  num? get pressureMb => throw _privateConstructorUsedError;
-  num? get pressureIn => throw _privateConstructorUsedError;
-  num? get precipMm => throw _privateConstructorUsedError;
-  num? get precipIn => throw _privateConstructorUsedError;
+  num? get wind_mph => throw _privateConstructorUsedError;
+  num? get wind_kph => throw _privateConstructorUsedError;
+  num? get wind_degree => throw _privateConstructorUsedError;
+  String? get wind_dir => throw _privateConstructorUsedError;
   num? get humidity => throw _privateConstructorUsedError;
   num? get cloud => throw _privateConstructorUsedError;
-  num? get feelslikeC => throw _privateConstructorUsedError;
-  num? get feelslikeF => throw _privateConstructorUsedError;
-  num? get visKm => throw _privateConstructorUsedError;
-  num? get visMiles => throw _privateConstructorUsedError;
-  num? get uv => throw _privateConstructorUsedError;
-  num? get gustMph => throw _privateConstructorUsedError;
-  num? get gustKph => throw _privateConstructorUsedError;
+  num? get feelslike_c => throw _privateConstructorUsedError;
+  num? get feelslike_f => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -241,29 +232,20 @@ abstract class $CurrentCopyWith<$Res> {
       _$CurrentCopyWithImpl<$Res, Current>;
   @useResult
   $Res call(
-      {num? lastUpdatedEpoch,
-      String? lastUpdated,
-      num? tempC,
-      num? tempF,
-      num? isDay,
+      {num? last_updated_epoch,
+      String? last_updated,
+      num? temp_c,
+      num? temp_f,
+      num? is_day,
       Condition? condition,
-      num? windMph,
-      num? windKph,
-      num? windDegree,
-      String? windDir,
-      num? pressureMb,
-      num? pressureIn,
-      num? precipMm,
-      num? precipIn,
+      num? wind_mph,
+      num? wind_kph,
+      num? wind_degree,
+      String? wind_dir,
       num? humidity,
       num? cloud,
-      num? feelslikeC,
-      num? feelslikeF,
-      num? visKm,
-      num? visMiles,
-      num? uv,
-      num? gustMph,
-      num? gustKph});
+      num? feelslike_c,
+      num? feelslike_f});
 
   $ConditionCopyWith<$Res>? get condition;
 }
@@ -281,87 +263,62 @@ class _$CurrentCopyWithImpl<$Res, $Val extends Current>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? lastUpdatedEpoch = freezed,
-    Object? lastUpdated = freezed,
-    Object? tempC = freezed,
-    Object? tempF = freezed,
-    Object? isDay = freezed,
+    Object? last_updated_epoch = freezed,
+    Object? last_updated = freezed,
+    Object? temp_c = freezed,
+    Object? temp_f = freezed,
+    Object? is_day = freezed,
     Object? condition = freezed,
-    Object? windMph = freezed,
-    Object? windKph = freezed,
-    Object? windDegree = freezed,
-    Object? windDir = freezed,
-    Object? pressureMb = freezed,
-    Object? pressureIn = freezed,
-    Object? precipMm = freezed,
-    Object? precipIn = freezed,
+    Object? wind_mph = freezed,
+    Object? wind_kph = freezed,
+    Object? wind_degree = freezed,
+    Object? wind_dir = freezed,
     Object? humidity = freezed,
     Object? cloud = freezed,
-    Object? feelslikeC = freezed,
-    Object? feelslikeF = freezed,
-    Object? visKm = freezed,
-    Object? visMiles = freezed,
-    Object? uv = freezed,
-    Object? gustMph = freezed,
-    Object? gustKph = freezed,
+    Object? feelslike_c = freezed,
+    Object? feelslike_f = freezed,
   }) {
     return _then(_value.copyWith(
-      lastUpdatedEpoch: freezed == lastUpdatedEpoch
-          ? _value.lastUpdatedEpoch
-          : lastUpdatedEpoch // ignore: cast_nullable_to_non_nullable
+      last_updated_epoch: freezed == last_updated_epoch
+          ? _value.last_updated_epoch
+          : last_updated_epoch // ignore: cast_nullable_to_non_nullable
               as num?,
-      lastUpdated: freezed == lastUpdated
-          ? _value.lastUpdated
-          : lastUpdated // ignore: cast_nullable_to_non_nullable
+      last_updated: freezed == last_updated
+          ? _value.last_updated
+          : last_updated // ignore: cast_nullable_to_non_nullable
               as String?,
-      tempC: freezed == tempC
-          ? _value.tempC
-          : tempC // ignore: cast_nullable_to_non_nullable
+      temp_c: freezed == temp_c
+          ? _value.temp_c
+          : temp_c // ignore: cast_nullable_to_non_nullable
               as num?,
-      tempF: freezed == tempF
-          ? _value.tempF
-          : tempF // ignore: cast_nullable_to_non_nullable
+      temp_f: freezed == temp_f
+          ? _value.temp_f
+          : temp_f // ignore: cast_nullable_to_non_nullable
               as num?,
-      isDay: freezed == isDay
-          ? _value.isDay
-          : isDay // ignore: cast_nullable_to_non_nullable
+      is_day: freezed == is_day
+          ? _value.is_day
+          : is_day // ignore: cast_nullable_to_non_nullable
               as num?,
       condition: freezed == condition
           ? _value.condition
           : condition // ignore: cast_nullable_to_non_nullable
               as Condition?,
-      windMph: freezed == windMph
-          ? _value.windMph
-          : windMph // ignore: cast_nullable_to_non_nullable
+      wind_mph: freezed == wind_mph
+          ? _value.wind_mph
+          : wind_mph // ignore: cast_nullable_to_non_nullable
               as num?,
-      windKph: freezed == windKph
-          ? _value.windKph
-          : windKph // ignore: cast_nullable_to_non_nullable
+      wind_kph: freezed == wind_kph
+          ? _value.wind_kph
+          : wind_kph // ignore: cast_nullable_to_non_nullable
               as num?,
-      windDegree: freezed == windDegree
-          ? _value.windDegree
-          : windDegree // ignore: cast_nullable_to_non_nullable
+      wind_degree: freezed == wind_degree
+          ? _value.wind_degree
+          : wind_degree // ignore: cast_nullable_to_non_nullable
               as num?,
-      windDir: freezed == windDir
-          ? _value.windDir
-          : windDir // ignore: cast_nullable_to_non_nullable
+      wind_dir: freezed == wind_dir
+          ? _value.wind_dir
+          : wind_dir // ignore: cast_nullable_to_non_nullable
               as String?,
-      pressureMb: freezed == pressureMb
-          ? _value.pressureMb
-          : pressureMb // ignore: cast_nullable_to_non_nullable
-              as num?,
-      pressureIn: freezed == pressureIn
-          ? _value.pressureIn
-          : pressureIn // ignore: cast_nullable_to_non_nullable
-              as num?,
-      precipMm: freezed == precipMm
-          ? _value.precipMm
-          : precipMm // ignore: cast_nullable_to_non_nullable
-              as num?,
-      precipIn: freezed == precipIn
-          ? _value.precipIn
-          : precipIn // ignore: cast_nullable_to_non_nullable
-              as num?,
       humidity: freezed == humidity
           ? _value.humidity
           : humidity // ignore: cast_nullable_to_non_nullable
@@ -370,33 +327,13 @@ class _$CurrentCopyWithImpl<$Res, $Val extends Current>
           ? _value.cloud
           : cloud // ignore: cast_nullable_to_non_nullable
               as num?,
-      feelslikeC: freezed == feelslikeC
-          ? _value.feelslikeC
-          : feelslikeC // ignore: cast_nullable_to_non_nullable
+      feelslike_c: freezed == feelslike_c
+          ? _value.feelslike_c
+          : feelslike_c // ignore: cast_nullable_to_non_nullable
               as num?,
-      feelslikeF: freezed == feelslikeF
-          ? _value.feelslikeF
-          : feelslikeF // ignore: cast_nullable_to_non_nullable
-              as num?,
-      visKm: freezed == visKm
-          ? _value.visKm
-          : visKm // ignore: cast_nullable_to_non_nullable
-              as num?,
-      visMiles: freezed == visMiles
-          ? _value.visMiles
-          : visMiles // ignore: cast_nullable_to_non_nullable
-              as num?,
-      uv: freezed == uv
-          ? _value.uv
-          : uv // ignore: cast_nullable_to_non_nullable
-              as num?,
-      gustMph: freezed == gustMph
-          ? _value.gustMph
-          : gustMph // ignore: cast_nullable_to_non_nullable
-              as num?,
-      gustKph: freezed == gustKph
-          ? _value.gustKph
-          : gustKph // ignore: cast_nullable_to_non_nullable
+      feelslike_f: freezed == feelslike_f
+          ? _value.feelslike_f
+          : feelslike_f // ignore: cast_nullable_to_non_nullable
               as num?,
     ) as $Val);
   }
@@ -422,29 +359,20 @@ abstract class _$$CurrentImplCopyWith<$Res> implements $CurrentCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {num? lastUpdatedEpoch,
-      String? lastUpdated,
-      num? tempC,
-      num? tempF,
-      num? isDay,
+      {num? last_updated_epoch,
+      String? last_updated,
+      num? temp_c,
+      num? temp_f,
+      num? is_day,
       Condition? condition,
-      num? windMph,
-      num? windKph,
-      num? windDegree,
-      String? windDir,
-      num? pressureMb,
-      num? pressureIn,
-      num? precipMm,
-      num? precipIn,
+      num? wind_mph,
+      num? wind_kph,
+      num? wind_degree,
+      String? wind_dir,
       num? humidity,
       num? cloud,
-      num? feelslikeC,
-      num? feelslikeF,
-      num? visKm,
-      num? visMiles,
-      num? uv,
-      num? gustMph,
-      num? gustKph});
+      num? feelslike_c,
+      num? feelslike_f});
 
   @override
   $ConditionCopyWith<$Res>? get condition;
@@ -461,87 +389,62 @@ class __$$CurrentImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? lastUpdatedEpoch = freezed,
-    Object? lastUpdated = freezed,
-    Object? tempC = freezed,
-    Object? tempF = freezed,
-    Object? isDay = freezed,
+    Object? last_updated_epoch = freezed,
+    Object? last_updated = freezed,
+    Object? temp_c = freezed,
+    Object? temp_f = freezed,
+    Object? is_day = freezed,
     Object? condition = freezed,
-    Object? windMph = freezed,
-    Object? windKph = freezed,
-    Object? windDegree = freezed,
-    Object? windDir = freezed,
-    Object? pressureMb = freezed,
-    Object? pressureIn = freezed,
-    Object? precipMm = freezed,
-    Object? precipIn = freezed,
+    Object? wind_mph = freezed,
+    Object? wind_kph = freezed,
+    Object? wind_degree = freezed,
+    Object? wind_dir = freezed,
     Object? humidity = freezed,
     Object? cloud = freezed,
-    Object? feelslikeC = freezed,
-    Object? feelslikeF = freezed,
-    Object? visKm = freezed,
-    Object? visMiles = freezed,
-    Object? uv = freezed,
-    Object? gustMph = freezed,
-    Object? gustKph = freezed,
+    Object? feelslike_c = freezed,
+    Object? feelslike_f = freezed,
   }) {
     return _then(_$CurrentImpl(
-      lastUpdatedEpoch: freezed == lastUpdatedEpoch
-          ? _value.lastUpdatedEpoch
-          : lastUpdatedEpoch // ignore: cast_nullable_to_non_nullable
+      last_updated_epoch: freezed == last_updated_epoch
+          ? _value.last_updated_epoch
+          : last_updated_epoch // ignore: cast_nullable_to_non_nullable
               as num?,
-      lastUpdated: freezed == lastUpdated
-          ? _value.lastUpdated
-          : lastUpdated // ignore: cast_nullable_to_non_nullable
+      last_updated: freezed == last_updated
+          ? _value.last_updated
+          : last_updated // ignore: cast_nullable_to_non_nullable
               as String?,
-      tempC: freezed == tempC
-          ? _value.tempC
-          : tempC // ignore: cast_nullable_to_non_nullable
+      temp_c: freezed == temp_c
+          ? _value.temp_c
+          : temp_c // ignore: cast_nullable_to_non_nullable
               as num?,
-      tempF: freezed == tempF
-          ? _value.tempF
-          : tempF // ignore: cast_nullable_to_non_nullable
+      temp_f: freezed == temp_f
+          ? _value.temp_f
+          : temp_f // ignore: cast_nullable_to_non_nullable
               as num?,
-      isDay: freezed == isDay
-          ? _value.isDay
-          : isDay // ignore: cast_nullable_to_non_nullable
+      is_day: freezed == is_day
+          ? _value.is_day
+          : is_day // ignore: cast_nullable_to_non_nullable
               as num?,
       condition: freezed == condition
           ? _value.condition
           : condition // ignore: cast_nullable_to_non_nullable
               as Condition?,
-      windMph: freezed == windMph
-          ? _value.windMph
-          : windMph // ignore: cast_nullable_to_non_nullable
+      wind_mph: freezed == wind_mph
+          ? _value.wind_mph
+          : wind_mph // ignore: cast_nullable_to_non_nullable
               as num?,
-      windKph: freezed == windKph
-          ? _value.windKph
-          : windKph // ignore: cast_nullable_to_non_nullable
+      wind_kph: freezed == wind_kph
+          ? _value.wind_kph
+          : wind_kph // ignore: cast_nullable_to_non_nullable
               as num?,
-      windDegree: freezed == windDegree
-          ? _value.windDegree
-          : windDegree // ignore: cast_nullable_to_non_nullable
+      wind_degree: freezed == wind_degree
+          ? _value.wind_degree
+          : wind_degree // ignore: cast_nullable_to_non_nullable
               as num?,
-      windDir: freezed == windDir
-          ? _value.windDir
-          : windDir // ignore: cast_nullable_to_non_nullable
+      wind_dir: freezed == wind_dir
+          ? _value.wind_dir
+          : wind_dir // ignore: cast_nullable_to_non_nullable
               as String?,
-      pressureMb: freezed == pressureMb
-          ? _value.pressureMb
-          : pressureMb // ignore: cast_nullable_to_non_nullable
-              as num?,
-      pressureIn: freezed == pressureIn
-          ? _value.pressureIn
-          : pressureIn // ignore: cast_nullable_to_non_nullable
-              as num?,
-      precipMm: freezed == precipMm
-          ? _value.precipMm
-          : precipMm // ignore: cast_nullable_to_non_nullable
-              as num?,
-      precipIn: freezed == precipIn
-          ? _value.precipIn
-          : precipIn // ignore: cast_nullable_to_non_nullable
-              as num?,
       humidity: freezed == humidity
           ? _value.humidity
           : humidity // ignore: cast_nullable_to_non_nullable
@@ -550,33 +453,13 @@ class __$$CurrentImplCopyWithImpl<$Res>
           ? _value.cloud
           : cloud // ignore: cast_nullable_to_non_nullable
               as num?,
-      feelslikeC: freezed == feelslikeC
-          ? _value.feelslikeC
-          : feelslikeC // ignore: cast_nullable_to_non_nullable
+      feelslike_c: freezed == feelslike_c
+          ? _value.feelslike_c
+          : feelslike_c // ignore: cast_nullable_to_non_nullable
               as num?,
-      feelslikeF: freezed == feelslikeF
-          ? _value.feelslikeF
-          : feelslikeF // ignore: cast_nullable_to_non_nullable
-              as num?,
-      visKm: freezed == visKm
-          ? _value.visKm
-          : visKm // ignore: cast_nullable_to_non_nullable
-              as num?,
-      visMiles: freezed == visMiles
-          ? _value.visMiles
-          : visMiles // ignore: cast_nullable_to_non_nullable
-              as num?,
-      uv: freezed == uv
-          ? _value.uv
-          : uv // ignore: cast_nullable_to_non_nullable
-              as num?,
-      gustMph: freezed == gustMph
-          ? _value.gustMph
-          : gustMph // ignore: cast_nullable_to_non_nullable
-              as num?,
-      gustKph: freezed == gustKph
-          ? _value.gustKph
-          : gustKph // ignore: cast_nullable_to_non_nullable
+      feelslike_f: freezed == feelslike_f
+          ? _value.feelslike_f
+          : feelslike_f // ignore: cast_nullable_to_non_nullable
               as num?,
     ));
   }
@@ -586,83 +469,56 @@ class __$$CurrentImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$CurrentImpl implements _Current {
   const _$CurrentImpl(
-      {this.lastUpdatedEpoch,
-      this.lastUpdated,
-      this.tempC,
-      this.tempF,
-      this.isDay,
+      {this.last_updated_epoch,
+      this.last_updated,
+      this.temp_c,
+      this.temp_f,
+      this.is_day,
       this.condition,
-      this.windMph,
-      this.windKph,
-      this.windDegree,
-      this.windDir,
-      this.pressureMb,
-      this.pressureIn,
-      this.precipMm,
-      this.precipIn,
+      this.wind_mph,
+      this.wind_kph,
+      this.wind_degree,
+      this.wind_dir,
       this.humidity,
       this.cloud,
-      this.feelslikeC,
-      this.feelslikeF,
-      this.visKm,
-      this.visMiles,
-      this.uv,
-      this.gustMph,
-      this.gustKph});
+      this.feelslike_c,
+      this.feelslike_f});
 
   factory _$CurrentImpl.fromJson(Map<String, dynamic> json) =>
       _$$CurrentImplFromJson(json);
 
   @override
-  final num? lastUpdatedEpoch;
+  final num? last_updated_epoch;
   @override
-  final String? lastUpdated;
+  final String? last_updated;
   @override
-  final num? tempC;
+  final num? temp_c;
   @override
-  final num? tempF;
+  final num? temp_f;
   @override
-  final num? isDay;
+  final num? is_day;
   @override
   final Condition? condition;
   @override
-  final num? windMph;
+  final num? wind_mph;
   @override
-  final num? windKph;
+  final num? wind_kph;
   @override
-  final num? windDegree;
+  final num? wind_degree;
   @override
-  final String? windDir;
-  @override
-  final num? pressureMb;
-  @override
-  final num? pressureIn;
-  @override
-  final num? precipMm;
-  @override
-  final num? precipIn;
+  final String? wind_dir;
   @override
   final num? humidity;
   @override
   final num? cloud;
   @override
-  final num? feelslikeC;
+  final num? feelslike_c;
   @override
-  final num? feelslikeF;
-  @override
-  final num? visKm;
-  @override
-  final num? visMiles;
-  @override
-  final num? uv;
-  @override
-  final num? gustMph;
-  @override
-  final num? gustKph;
+  final num? feelslike_f;
 
   @override
   String toString() {
-    return 'Current(lastUpdatedEpoch: $lastUpdatedEpoch, lastUpdated: $lastUpdated, tempC: $tempC, tempF: $tempF, isDay: $isDay, condition: $condition, windMph: $windMph, windKph: $windKph, windDegree: $windDegree, windDir: $windDir, pressureMb: $pressureMb, pressureIn: $pressureIn, precipMm: $precipMm, precipIn: $precipIn, humidity: $humidity, cloud: $cloud, feelslikeC: $feelslikeC, feelslikeF: $feelslikeF, visKm: $visKm, visMiles: $visMiles, uv: $uv, gustMph: $gustMph, gustKph: $gustKph)';
+    return 'Current(last_updated_epoch: $last_updated_epoch, last_updated: $last_updated, temp_c: $temp_c, temp_f: $temp_f, is_day: $is_day, condition: $condition, wind_mph: $wind_mph, wind_kph: $wind_kph, wind_degree: $wind_degree, wind_dir: $wind_dir, humidity: $humidity, cloud: $cloud, feelslike_c: $feelslike_c, feelslike_f: $feelslike_f)';
   }
 
   @override
@@ -670,71 +526,50 @@ class _$CurrentImpl implements _Current {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CurrentImpl &&
-            (identical(other.lastUpdatedEpoch, lastUpdatedEpoch) ||
-                other.lastUpdatedEpoch == lastUpdatedEpoch) &&
-            (identical(other.lastUpdated, lastUpdated) ||
-                other.lastUpdated == lastUpdated) &&
-            (identical(other.tempC, tempC) || other.tempC == tempC) &&
-            (identical(other.tempF, tempF) || other.tempF == tempF) &&
-            (identical(other.isDay, isDay) || other.isDay == isDay) &&
+            (identical(other.last_updated_epoch, last_updated_epoch) ||
+                other.last_updated_epoch == last_updated_epoch) &&
+            (identical(other.last_updated, last_updated) ||
+                other.last_updated == last_updated) &&
+            (identical(other.temp_c, temp_c) || other.temp_c == temp_c) &&
+            (identical(other.temp_f, temp_f) || other.temp_f == temp_f) &&
+            (identical(other.is_day, is_day) || other.is_day == is_day) &&
             (identical(other.condition, condition) ||
                 other.condition == condition) &&
-            (identical(other.windMph, windMph) || other.windMph == windMph) &&
-            (identical(other.windKph, windKph) || other.windKph == windKph) &&
-            (identical(other.windDegree, windDegree) ||
-                other.windDegree == windDegree) &&
-            (identical(other.windDir, windDir) || other.windDir == windDir) &&
-            (identical(other.pressureMb, pressureMb) ||
-                other.pressureMb == pressureMb) &&
-            (identical(other.pressureIn, pressureIn) ||
-                other.pressureIn == pressureIn) &&
-            (identical(other.precipMm, precipMm) ||
-                other.precipMm == precipMm) &&
-            (identical(other.precipIn, precipIn) ||
-                other.precipIn == precipIn) &&
+            (identical(other.wind_mph, wind_mph) ||
+                other.wind_mph == wind_mph) &&
+            (identical(other.wind_kph, wind_kph) ||
+                other.wind_kph == wind_kph) &&
+            (identical(other.wind_degree, wind_degree) ||
+                other.wind_degree == wind_degree) &&
+            (identical(other.wind_dir, wind_dir) ||
+                other.wind_dir == wind_dir) &&
             (identical(other.humidity, humidity) ||
                 other.humidity == humidity) &&
             (identical(other.cloud, cloud) || other.cloud == cloud) &&
-            (identical(other.feelslikeC, feelslikeC) ||
-                other.feelslikeC == feelslikeC) &&
-            (identical(other.feelslikeF, feelslikeF) ||
-                other.feelslikeF == feelslikeF) &&
-            (identical(other.visKm, visKm) || other.visKm == visKm) &&
-            (identical(other.visMiles, visMiles) ||
-                other.visMiles == visMiles) &&
-            (identical(other.uv, uv) || other.uv == uv) &&
-            (identical(other.gustMph, gustMph) || other.gustMph == gustMph) &&
-            (identical(other.gustKph, gustKph) || other.gustKph == gustKph));
+            (identical(other.feelslike_c, feelslike_c) ||
+                other.feelslike_c == feelslike_c) &&
+            (identical(other.feelslike_f, feelslike_f) ||
+                other.feelslike_f == feelslike_f));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hashAll([
-        runtimeType,
-        lastUpdatedEpoch,
-        lastUpdated,
-        tempC,
-        tempF,
-        isDay,
-        condition,
-        windMph,
-        windKph,
-        windDegree,
-        windDir,
-        pressureMb,
-        pressureIn,
-        precipMm,
-        precipIn,
-        humidity,
-        cloud,
-        feelslikeC,
-        feelslikeF,
-        visKm,
-        visMiles,
-        uv,
-        gustMph,
-        gustKph
-      ]);
+  int get hashCode => Object.hash(
+      runtimeType,
+      last_updated_epoch,
+      last_updated,
+      temp_c,
+      temp_f,
+      is_day,
+      condition,
+      wind_mph,
+      wind_kph,
+      wind_degree,
+      wind_dir,
+      humidity,
+      cloud,
+      feelslike_c,
+      feelslike_f);
 
   @JsonKey(ignore: true)
   @override
@@ -752,78 +587,51 @@ class _$CurrentImpl implements _Current {
 
 abstract class _Current implements Current {
   const factory _Current(
-      {final num? lastUpdatedEpoch,
-      final String? lastUpdated,
-      final num? tempC,
-      final num? tempF,
-      final num? isDay,
+      {final num? last_updated_epoch,
+      final String? last_updated,
+      final num? temp_c,
+      final num? temp_f,
+      final num? is_day,
       final Condition? condition,
-      final num? windMph,
-      final num? windKph,
-      final num? windDegree,
-      final String? windDir,
-      final num? pressureMb,
-      final num? pressureIn,
-      final num? precipMm,
-      final num? precipIn,
+      final num? wind_mph,
+      final num? wind_kph,
+      final num? wind_degree,
+      final String? wind_dir,
       final num? humidity,
       final num? cloud,
-      final num? feelslikeC,
-      final num? feelslikeF,
-      final num? visKm,
-      final num? visMiles,
-      final num? uv,
-      final num? gustMph,
-      final num? gustKph}) = _$CurrentImpl;
+      final num? feelslike_c,
+      final num? feelslike_f}) = _$CurrentImpl;
 
   factory _Current.fromJson(Map<String, dynamic> json) = _$CurrentImpl.fromJson;
 
   @override
-  num? get lastUpdatedEpoch;
+  num? get last_updated_epoch;
   @override
-  String? get lastUpdated;
+  String? get last_updated;
   @override
-  num? get tempC;
+  num? get temp_c;
   @override
-  num? get tempF;
+  num? get temp_f;
   @override
-  num? get isDay;
+  num? get is_day;
   @override
   Condition? get condition;
   @override
-  num? get windMph;
+  num? get wind_mph;
   @override
-  num? get windKph;
+  num? get wind_kph;
   @override
-  num? get windDegree;
+  num? get wind_degree;
   @override
-  String? get windDir;
-  @override
-  num? get pressureMb;
-  @override
-  num? get pressureIn;
-  @override
-  num? get precipMm;
-  @override
-  num? get precipIn;
+  String? get wind_dir;
   @override
   num? get humidity;
   @override
   num? get cloud;
   @override
-  num? get feelslikeC;
+  num? get feelslike_c;
   @override
-  num? get feelslikeF;
-  @override
-  num? get visKm;
-  @override
-  num? get visMiles;
-  @override
-  num? get uv;
-  @override
-  num? get gustMph;
-  @override
-  num? get gustKph;
+  num? get feelslike_f;
   @override
   @JsonKey(ignore: true)
   _$$CurrentImplCopyWith<_$CurrentImpl> get copyWith =>
@@ -1011,8 +819,8 @@ mixin _$Location {
   String? get country => throw _privateConstructorUsedError;
   num? get lat => throw _privateConstructorUsedError;
   num? get lon => throw _privateConstructorUsedError;
-  String? get tzId => throw _privateConstructorUsedError;
-  num? get localtimeEpoch => throw _privateConstructorUsedError;
+  String? get tz_id => throw _privateConstructorUsedError;
+  num? get localtime_epoch => throw _privateConstructorUsedError;
   String? get localtime => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -1032,8 +840,8 @@ abstract class $LocationCopyWith<$Res> {
       String? country,
       num? lat,
       num? lon,
-      String? tzId,
-      num? localtimeEpoch,
+      String? tz_id,
+      num? localtime_epoch,
       String? localtime});
 }
 
@@ -1055,8 +863,8 @@ class _$LocationCopyWithImpl<$Res, $Val extends Location>
     Object? country = freezed,
     Object? lat = freezed,
     Object? lon = freezed,
-    Object? tzId = freezed,
-    Object? localtimeEpoch = freezed,
+    Object? tz_id = freezed,
+    Object? localtime_epoch = freezed,
     Object? localtime = freezed,
   }) {
     return _then(_value.copyWith(
@@ -1080,13 +888,13 @@ class _$LocationCopyWithImpl<$Res, $Val extends Location>
           ? _value.lon
           : lon // ignore: cast_nullable_to_non_nullable
               as num?,
-      tzId: freezed == tzId
-          ? _value.tzId
-          : tzId // ignore: cast_nullable_to_non_nullable
+      tz_id: freezed == tz_id
+          ? _value.tz_id
+          : tz_id // ignore: cast_nullable_to_non_nullable
               as String?,
-      localtimeEpoch: freezed == localtimeEpoch
-          ? _value.localtimeEpoch
-          : localtimeEpoch // ignore: cast_nullable_to_non_nullable
+      localtime_epoch: freezed == localtime_epoch
+          ? _value.localtime_epoch
+          : localtime_epoch // ignore: cast_nullable_to_non_nullable
               as num?,
       localtime: freezed == localtime
           ? _value.localtime
@@ -1110,8 +918,8 @@ abstract class _$$LocationImplCopyWith<$Res>
       String? country,
       num? lat,
       num? lon,
-      String? tzId,
-      num? localtimeEpoch,
+      String? tz_id,
+      num? localtime_epoch,
       String? localtime});
 }
 
@@ -1131,8 +939,8 @@ class __$$LocationImplCopyWithImpl<$Res>
     Object? country = freezed,
     Object? lat = freezed,
     Object? lon = freezed,
-    Object? tzId = freezed,
-    Object? localtimeEpoch = freezed,
+    Object? tz_id = freezed,
+    Object? localtime_epoch = freezed,
     Object? localtime = freezed,
   }) {
     return _then(_$LocationImpl(
@@ -1156,13 +964,13 @@ class __$$LocationImplCopyWithImpl<$Res>
           ? _value.lon
           : lon // ignore: cast_nullable_to_non_nullable
               as num?,
-      tzId: freezed == tzId
-          ? _value.tzId
-          : tzId // ignore: cast_nullable_to_non_nullable
+      tz_id: freezed == tz_id
+          ? _value.tz_id
+          : tz_id // ignore: cast_nullable_to_non_nullable
               as String?,
-      localtimeEpoch: freezed == localtimeEpoch
-          ? _value.localtimeEpoch
-          : localtimeEpoch // ignore: cast_nullable_to_non_nullable
+      localtime_epoch: freezed == localtime_epoch
+          ? _value.localtime_epoch
+          : localtime_epoch // ignore: cast_nullable_to_non_nullable
               as num?,
       localtime: freezed == localtime
           ? _value.localtime
@@ -1181,8 +989,8 @@ class _$LocationImpl implements _Location {
       this.country,
       this.lat,
       this.lon,
-      this.tzId,
-      this.localtimeEpoch,
+      this.tz_id,
+      this.localtime_epoch,
       this.localtime});
 
   factory _$LocationImpl.fromJson(Map<String, dynamic> json) =>
@@ -1199,15 +1007,15 @@ class _$LocationImpl implements _Location {
   @override
   final num? lon;
   @override
-  final String? tzId;
+  final String? tz_id;
   @override
-  final num? localtimeEpoch;
+  final num? localtime_epoch;
   @override
   final String? localtime;
 
   @override
   String toString() {
-    return 'Location(name: $name, region: $region, country: $country, lat: $lat, lon: $lon, tzId: $tzId, localtimeEpoch: $localtimeEpoch, localtime: $localtime)';
+    return 'Location(name: $name, region: $region, country: $country, lat: $lat, lon: $lon, tz_id: $tz_id, localtime_epoch: $localtime_epoch, localtime: $localtime)';
   }
 
   @override
@@ -1220,9 +1028,9 @@ class _$LocationImpl implements _Location {
             (identical(other.country, country) || other.country == country) &&
             (identical(other.lat, lat) || other.lat == lat) &&
             (identical(other.lon, lon) || other.lon == lon) &&
-            (identical(other.tzId, tzId) || other.tzId == tzId) &&
-            (identical(other.localtimeEpoch, localtimeEpoch) ||
-                other.localtimeEpoch == localtimeEpoch) &&
+            (identical(other.tz_id, tz_id) || other.tz_id == tz_id) &&
+            (identical(other.localtime_epoch, localtime_epoch) ||
+                other.localtime_epoch == localtime_epoch) &&
             (identical(other.localtime, localtime) ||
                 other.localtime == localtime));
   }
@@ -1230,7 +1038,7 @@ class _$LocationImpl implements _Location {
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, name, region, country, lat, lon,
-      tzId, localtimeEpoch, localtime);
+      tz_id, localtime_epoch, localtime);
 
   @JsonKey(ignore: true)
   @override
@@ -1253,8 +1061,8 @@ abstract class _Location implements Location {
       final String? country,
       final num? lat,
       final num? lon,
-      final String? tzId,
-      final num? localtimeEpoch,
+      final String? tz_id,
+      final num? localtime_epoch,
       final String? localtime}) = _$LocationImpl;
 
   factory _Location.fromJson(Map<String, dynamic> json) =
@@ -1271,9 +1079,9 @@ abstract class _Location implements Location {
   @override
   num? get lon;
   @override
-  String? get tzId;
+  String? get tz_id;
   @override
-  num? get localtimeEpoch;
+  num? get localtime_epoch;
   @override
   String? get localtime;
   @override

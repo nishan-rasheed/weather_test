@@ -16,3 +16,7 @@ final class UserLoadSuccessState extends HomeState {
 final class UserLoadFailState extends HomeState {}
 
 
+final class UserDeleteSuccessState extends HomeState {}
+final class UserDeleteFailState extends HomeState {}
+
+

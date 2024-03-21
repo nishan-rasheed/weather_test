@@ -54,4 +54,20 @@ class AuthRepo {
  }
 
 
+ Future<DoubleResponse> logout()async{
+   try {
+
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+
+   prefs.clear();
+
+     return DoubleResponse(true, 'User logouted');
+   } catch (e) {
+
+    return DoubleResponse(false, false);
+     
+   }
+ }
+
+
 }

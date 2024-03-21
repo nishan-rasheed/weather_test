@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:weather_app/utils/data_response_model.dart';
 
-import '../model/add_user/add_user_model.dart';
+import '../model/add_user_model.dart';
 
 class HomeRepo{
 
@@ -13,16 +13,21 @@ class HomeRepo{
 
 
   
-  List<AddUserModel> userDataList=[];
+  // List<AddUserModel> userDataList=[];
+  List<AddUserModel> userList=[];
 
-  Future<DoubleResponse> addUser()async{
+  Future<DoubleResponse> addUser({
+    required String firstName,
+    required String lastName,
+    required String email,
+  })async{
 
    try {
 
-       userDataList.add(const AddUserModel(email: 'enaahjh@gmail.com',firstName: 'firster',lastName: 'laster'));
+       userList.add( AddUserModel(email: email,firstName: firstName,lastName:lastName));
 
      
-     localUserDataBox.put('userData', addUserModelToJson(userDataList));
+     localUserDataBox.put('userData', addUserModelToJson(userList));
 
 
 
@@ -36,11 +41,12 @@ class HomeRepo{
 
 
   
+
    Future<DoubleResponse> getDataFromLocal()async{
 
    try {
 
-    List<AddUserModel> userList=[];
+    
 
    var dd = localUserDataBox.get('userData');
 
@@ -56,7 +62,21 @@ class HomeRepo{
     
      
    } catch (e) {
-    print('gcggcgcgc${e.toString()}');
+      return DoubleResponse(false, 'Some thing went wrong');
+   }
+  
+  }
+
+  Future<DoubleResponse> deleteUser(String email)async{
+
+   try {
+
+   userList.removeWhere((e) => e.email?.toLowerCase()==email.toLowerCase());
+
+   localUserDataBox.put('userData', addUserModelToJson(userList));
+
+   return DoubleResponse(true, 'item deleted');
+   } catch (e) {
       return DoubleResponse(false, 'Some thing went wrong');
    }
   

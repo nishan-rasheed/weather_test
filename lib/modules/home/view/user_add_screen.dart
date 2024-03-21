@@ -9,59 +9,102 @@ import 'package:weather_app/modules/home/data/home_repo.dart';
 
 import '../../../common_widgets/common_text.dart';
 
-class UserAddScreen extends StatelessWidget {
-   UserAddScreen({Key? key}) : super(key: key);
+class UserAddScreen extends StatefulWidget {
+  const UserAddScreen({Key? key}) : super(key: key);
+
+  @override
+  State<UserAddScreen> createState() => _UserAddScreenState();
+}
+
+class _UserAddScreenState extends State<UserAddScreen> {
+  var homerepo = HomeRepo();
+
+  final _forkKey = GlobalKey<FormState>();
 
   static TextEditingController firstNameCtr = TextEditingController();
   static TextEditingController lastNameCtr = TextEditingController();
   static TextEditingController emailCtr = TextEditingController();
 
+  @override
+  void initState() {
+    clearTextfield();
+    super.initState();
+  }
 
-  var homerepo = HomeRepo();
+  clearTextfield() {
+    firstNameCtr.clear();
+    lastNameCtr.clear();
+    emailCtr.clear();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(onPressed: (){
-       // homerepo.clearLocalData();
-        homerepo.getDataFromLocal();
-      }),
       appBar: AppBar(
-        title: const CommonText(text: 'Add User'),),
-
+        title: const CommonText(text: 'Add User'),
+      ),
       body: Padding(
-        padding:  EdgeInsets.symmetric(vertical: 50.h,horizontal: 25.w),
-        child: Column(
-          // mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-
-            CommonTextField(hint: 'First Name',
-            controller: firstNameCtr,
-            ),
-            cmHeight10,
-            CommonTextField(hint: 'Last Name',
-            controller: lastNameCtr,),
-            cmHeight10,
-            CommonTextField(hint: 'Email',
-            controller: emailCtr,),
-            cmHeight50,
-      
-            CommonButton(
-              onPressed: (){
-                context.read<HomeBloc>().add(UserAddEvent());
-                context.read<HomeBloc>().add(UserLoadEvent());
-              }, 
-              label: 'Save'),
-
-            CommonButton(
-              onPressed: (){
-                homerepo.clearLocalData();
-                context.read<HomeBloc>().add(UserLoadEvent());
-              }, 
-              label: 'clear'),  
-          ],
+        padding: EdgeInsets.symmetric(vertical: 50.h, horizontal: 25.w),
+        child: Form(
+          key: _forkKey,
+          child: Column(
+            // mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              CommonTextField(
+                validator: (v) {
+                  if (v?.isEmpty??false) {
+                    return '*Required';
+                  }
+                  return null;
+                },
+                hint: 'First Name',
+                controller: firstNameCtr,
+              ),
+              cmHeight10,
+              CommonTextField(
+                validator: (v) {
+                  if (v?.isEmpty??false) {
+                    return '*Required';
+                  }
+                  return null;
+                },
+                hint: 'Last Name',
+                controller: lastNameCtr,
+              ),
+              cmHeight10,
+              CommonTextField(
+                validator: (v) {
+                  if (v?.isEmpty??false) {
+                    return '*Required';
+                  }
+                  return null;
+                },
+                hint: 'Email',
+                controller: emailCtr,
+              ),
+              cmHeight50,
+              BlocListener<HomeBloc, HomeState>(
+                listener: (context, state) {
+                  if (state is UserAddedSuccessState) {
+                    Navigator.pop(context);
+                  }
+                },
+                child: CommonButton(
+                    onPressed: () {
+                      if (_forkKey.currentState?.validate()??false) {
+                         context.read<HomeBloc>().add(UserAddEvent(
+                          firstName: firstNameCtr.text,
+                          lastName: lastNameCtr.text,
+                          email: emailCtr.text));
+                          context.read<HomeBloc>().add(UserLoadEvent());
+                      }
+                    },
+                    label: 'Save'),
+              ),
+            ],
+          ),
         ),
-      ),  
+      ),
     );
   }
 }

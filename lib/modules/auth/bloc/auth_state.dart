@@ -15,3 +15,8 @@ final class UserLoggedState extends AuthState {}
 final class UserNotLoggedState extends AuthState {}
 
 
+final class UserSignoutSuccessState extends AuthState {}
+
+final class UserSignoutFailState extends AuthState {}
+
+
