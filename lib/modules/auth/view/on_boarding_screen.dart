@@ -1,4 +1,4 @@
-// OnBoarding content list
+
 import 'dart:async';
 
 import 'package:flutter/material.dart';
