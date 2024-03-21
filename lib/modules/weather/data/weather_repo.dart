@@ -41,7 +41,8 @@ class WeatherRepo {
     return DoubleResponse(true, locaWeatherData);
     }
 
-   } catch (e) {
+   }
+   catch (e) {
       return DoubleResponse(false, 'Some thing went wrong');
    }
   

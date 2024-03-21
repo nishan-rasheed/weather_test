@@ -37,7 +37,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
           builder: (context, coreValue, child) =>
           Row(mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              CommonText(text: coreValue.isCelcius?'Celciis':'Fahrenheit'),
+              CommonText(text: coreValue.isCelcius?'Celsius':'Fahrenheit'),
               cmWidth05,
               CupertinoSwitch(
                 value: coreValue.isCelcius, onChanged: (v){
@@ -62,7 +62,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
                 children: [
                   FadeInLeft(
                     child: CommonText(
-                      text: 'Kochi - Kerala',
+                      text: '${state.weatherData.location?.name} - ${state.weatherData.location?.region}',
                       textStyle: AppTextStyles.labelLarge
                           .copyWith(color: AppColor.cWhite),
                     ),
@@ -70,10 +70,13 @@ class _WeatherScreenState extends State<WeatherScreen> {
 
                   cmHeight05,
 
-                  CommonText(
-                    text: DateMethods.formatDate(state.weatherData.location?.localtime??''),
-                    textStyle: AppTextStyles.labelMedium
-                        .copyWith(color: AppColor.cWhite),
+                  BounceInDown(
+                    delay: const Duration(milliseconds: 1000),
+                    child: CommonText(
+                      text: DateMethods.formatDate(state.weatherData.location?.localtime??''),
+                      textStyle: AppTextStyles.labelMedium
+                          .copyWith(color: AppColor.cWhite),
+                    ),
                   ),
 
                   cmHeight30,
@@ -102,7 +105,9 @@ class _WeatherScreenState extends State<WeatherScreen> {
                             '${state.weatherData.current?.temp_c}\u00B0 C':
                             '${state.weatherData.current?.temp_f}\u00B0 F',
                             textStyle: AppTextStyles.labelMedium
-                                .copyWith(fontSize: 40.sp, color: AppColor.cWhite),
+                                .copyWith(fontSize: 45.sp, color: AppColor.cWhite,
+                                fontWeight: FontWeight.w300
+                                ),
                           ),
                         ),
                       ),
@@ -113,26 +118,31 @@ class _WeatherScreenState extends State<WeatherScreen> {
 
                   cmHeight30,
 
-                  CommonText(
-                    text: 'Weather Condition : ${state.weatherData.current?.condition?.text}',
-                    textStyle: AppTextStyles.labelMedium
-                        .copyWith(color: AppColor.cWhite,
-                        fontSize: 18.sp
-                        ),
+                  FadeInRight(
+                    delay: const Duration(milliseconds: 800),
+                    child: CommonText(
+                      text: 'Weather Type : ${state.weatherData.current?.condition?.text}',
+                      textStyle: AppTextStyles.labelMedium
+                          .copyWith(color: AppColor.cWhite,
+                          fontSize: 18.sp
+                          ),
+                    ),
                   ),
 
                   const Spacer(),
                    Align(
                     alignment: Alignment.centerLeft,
-                     child: CommonText(
-                      text: 'More Weather Details',
-                      textStyle: AppTextStyles.labelMedium
-                          .copyWith(color: AppColor.borderColor,
-                          fontSize: 18.sp
-                          ),
-                                     ),
+                     child: BounceInLeft(
+                       child: CommonText(
+                        text: 'More Weather Details',
+                        textStyle: AppTextStyles.labelMedium
+                            .copyWith(color: AppColor.borderColor,
+                            fontSize: 18.sp
+                            ),
+                                       ),
+                     ),
                    ),
-                   cmHeight10,
+                   cmHeight15,
                   FlipInX(
                     child: Container(
                       alignment: Alignment.center,

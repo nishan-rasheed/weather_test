@@ -5,7 +5,9 @@ class AppColor{
   static const primaryColor = Color(0xff464858);
   static const borderColor = Color(0xff979797);
   static const cWhite = Color(0xffFFFFFF);
+  
+  static const gradient1 = Color(0xFFF2F4F7);
+  static const gradient2 = Color(0xFFBCC8D6);
 
 
-  //http://api.weatherapi.com/v1/current.json?key=c543e19d7b364809a85141039241803&q=kochi&aqi=no
 }

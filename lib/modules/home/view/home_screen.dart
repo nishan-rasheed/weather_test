@@ -7,11 +7,11 @@ import 'package:weather_app/common_widgets/app_style.dart';
 import 'package:weather_app/common_widgets/common_button.dart';
 import 'package:weather_app/common_widgets/common_text.dart';
 import 'package:weather_app/modules/auth/bloc/auth_bloc.dart';
+import 'package:weather_app/modules/auth/view/splash_screen.dart';
 import 'package:weather_app/modules/home/bloc/home_bloc.dart';
 import 'package:weather_app/modules/home/view/user_add_screen.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:weather_app/utils/app_color.dart';
-import 'package:weather_app/wrapper_screen.dart';
 
 import '../../weather/view/weather_screen.dart';
 
@@ -28,7 +28,7 @@ class HomeScreen extends StatelessWidget {
       bottomNavigationBar: BlocListener<AuthBloc, AuthState>(
         listener: (context, state) {
           if (state is UserSignoutSuccessState) {
-            Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => const WrapperScreen(),), (route) => false);
+            Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => const SplashScreen(),), (route) => false);
           }
         },
         child: Padding(

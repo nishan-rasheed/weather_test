@@ -3,24 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather_app/modules/auth/bloc/auth_bloc.dart';
 import 'package:weather_app/modules/auth/view/on_boarding_screen.dart';
-import 'package:weather_app/modules/home/bloc/home_bloc.dart';
 import 'package:weather_app/modules/home/view/home_screen.dart';
 import 'package:weather_app/utils/app_color.dart';
 
-class WrapperScreen extends StatefulWidget {
+class WrapperScreen extends StatelessWidget {
   const WrapperScreen({Key? key}) : super(key: key);
-
-  @override
-  State<WrapperScreen> createState() => _WrapperScreenState();
-}
-
-class _WrapperScreenState extends State<WrapperScreen> {
-  @override
-  void initState() {
-    context.read<AuthBloc>().add(CheclLoggedEvent());
-    context.read<HomeBloc>().add(UserLoadEvent());
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {

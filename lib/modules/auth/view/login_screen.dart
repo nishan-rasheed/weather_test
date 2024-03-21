@@ -72,7 +72,7 @@ class LoginScreen extends StatelessWidget {
                         width: 100.w,
                         onPressed: () {
                           if (_loginForkKey.currentState?.validate()??false) {
-                            context.read<AuthBloc>().add(LoginEvent(
+                           context.read<AuthBloc>().add(LoginEvent(
                               userName: userNameCtr.text,
                               password: passWordCtr.text));
                             
